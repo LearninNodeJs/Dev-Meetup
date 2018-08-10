@@ -78,12 +78,12 @@ export default {
       fixed: false,
       items: [{
         icon: 'bubble_chart',
-        title: 'Inspire'
+        title: 'Dev-meetUp Vue'
       }],
       miniVariant: false,
       right: true,
       rightDrawer: false,
-      title: 'Vuetify.js'
+      title: 'Dev-MeetUp Vue'
     }
   },
   name: 'App'
