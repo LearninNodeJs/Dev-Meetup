@@ -13,7 +13,7 @@
 
     <v-navigation-drawer v-model="sideNav" absolute temporary>
     <v-list>
-      <v-list-tile v-for="item in menuItems":key="item.title">
+      <v-list-tile @click="" v-for="item in menuItems":key="item.title">
         <v-list-tile-action>
           <v-icon>{{item.icon}}</v-icon>
         </v-list-tile-action>

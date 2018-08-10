@@ -6,6 +6,7 @@ import CreateMeetup from  '@/components/Meetup/CreateMeetup'
 import Profile from '@/components/User/Profile'
 import Signin from  '@/components/User/Signin'
 import Signup from  '@/components/User/Signup'
+import HelloWorld from '@/components/HelloWorld'
 
 Vue.use(Router)
 
@@ -13,7 +14,7 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'HelloWorld',
+      name: 'Home',
       component: Home
     },
     {
@@ -39,6 +40,10 @@ export default new Router({
       path:'/signin',
       name:'Signin',
       component:Signin
+    },{
+      path:'/hello',
+      name:'HelloWorld',
+      component:HelloWorld
     }
   ]
 })
