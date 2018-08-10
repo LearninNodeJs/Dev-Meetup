@@ -1,16 +1,17 @@
 <template>
   <v-app>
     <v-toolbar dark class="red darken-2">
-      <v-toolbar-side-icon @click.native.stop="sideNav = !sideNav" class="hidden-sm-and-down"></v-toolbar-side-icon>
+      <v-toolbar-side-icon @click.native.stop="sideNav = !sideNav" class="hidden-sm-and-up"></v-toolbar-side-icon>
       <v-toolbar-title>Dev MeetUp</v-toolbar-title>
       <v-spacer></v-spacer>
-      <v-toolbar-items class="hidden-sm-only">
+      <v-toolbar-items class="hidden-xs-only">
         <v-btn flat v-for="item in menuItems":key="item.title">
           <v-icon dark left>{{item.icon}}</v-icon>
           {{item.title}}</v-btn>
       </v-toolbar-items>
     </v-toolbar>
-    <v-navigation-drawer v-model="sideNav">
+
+    <v-navigation-drawer v-model="sideNav" absolute temporary>
     <v-list>
       <v-list-tile v-for="item in menuItems":key="item.title">
         <v-list-tile-action>
@@ -21,7 +22,7 @@
     </v-list>
     </v-navigation-drawer>
   <main>
-
+  <router-view></router-view>
   </main>
   </v-app>
 </template>
@@ -37,8 +38,6 @@ export default {
           {icon: 'person',title:'Profile'},
           {icon: 'face',title:'Sign up'},
           {icon: 'lock_open',title:'Sign in'}
-
-
         ]
     }
   },
