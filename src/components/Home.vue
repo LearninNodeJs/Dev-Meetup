@@ -37,15 +37,9 @@
 
 <script>
   export default{
-    data(){
-      return{
-        meetups:[
-          {imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/4/47/New_york_times_square-terabass.jpg',id:'adsfefsfsfeew',title:'Meetup In New York'},
-          {imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/d/d4/Boulevard_des_Capucines%2C_Paris_31_July_2010.jpg',id:'adsfefeew',title:'Meetup In Paris'},
-          {imageUrl: 'https://upload.wikimedia.org/wikipedia/en/b/b2/Nairobi_uhuru_park.JPG',id:'adsfefsffeew',title:'Meetup In Nairobi'}
-
-
-        ]
+    computed:{
+      meetups(){
+        return this.$store.getters.featuredMeetups
       }
     },
     methods:{
