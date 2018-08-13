@@ -8,6 +8,7 @@ import 'vuetify/dist/vuetify.min.css'
 import {store} from './store'
 import DateFilter from './filter/date'
 import * as firebase from 'firebase'
+require('dotenv').config();
 Vue.use(Vuetify);
 
 Vue.config.productionTip = false
@@ -21,12 +22,12 @@ new Vue({
   template: '<App/>',
   created(){
       firebase.initializeApp({
-        apiKey: "AIzaSyAc-HKw1TBw0hrCL3j4Q-oOxXSK5VY7oMU",
-        authDomain: "devmeetupvue-a8f57.firebaseapp.com",
-        databaseURL: "https://devmeetupvue-a8f57.firebaseio.com",
-        projectId: "devmeetupvue-a8f57",
-        storageBucket: "devmeetupvue-a8f57.appspot.com",
-        messagingSenderId: "458070932747"
+        apiKey:process.env.apiKey,
+        authDomain: process.env.authDomain,
+        databaseURL: process.env.databaseURL,
+        projectId: process.env.projectId,
+        storageBucket: process.env.storageBucket,
+        messagingSenderId: process.env.messagingSenderId
       });
   }
 });
