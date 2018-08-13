@@ -5,7 +5,7 @@
         <v-card>
           <v-card-text>
             <v-container>
-              <form @submit="onSignUpClicked">
+              <form @submit.prevent="onSignUpClicked">
                 <v-layout row>
                   <v-flex xs12>
                     <v-text-field
@@ -71,7 +71,7 @@
     },
     methods:{
       onSignUpClicked(){
-        console.log({email:this.email,password:this.password,confirmPassword:this.confirmPassword})
+        this.$store.dispatch('createUserWithFirebase',{email:this.email,password:this.password});
       }
     }
   }
