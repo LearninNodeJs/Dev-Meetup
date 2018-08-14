@@ -8,6 +8,9 @@
     <v-layout row>
       <v-flex xs12 sm6 offset-sm3>
         <v-card>
+          <v-card-title>
+            <h4 class="primary--text">Sign Up</h4>
+          </v-card-title>
           <v-card-text>
             <v-container>
               <form @submit.prevent="onSignUpClicked">
@@ -19,6 +22,7 @@
                     id="email"
                     v-model="email"
                     type="email"
+                    outline
                     required></v-text-field>
                   </v-flex>
                 </v-layout>
@@ -30,6 +34,7 @@
                       id="password"
                       v-model="password"
                       type="password"
+                      outline
                       required></v-text-field>
                   </v-flex>
                 </v-layout>
@@ -41,13 +46,14 @@
                       id="confirmPassword"
                       v-model="confirmPassword"
                       type="password"
+                      outline
                       required
                        :rules =[comparePasswordsHandler]></v-text-field>
                   </v-flex>
                 </v-layout>
                 <v-layout row>
                   <v-flex xs12>
-                    <v-btn round type="submit" :disabled="loading" :loading="loading">
+                    <v-btn outline class="primary--text" type="submit" :disabled="loading" :loading="loading">
                       Sign Up
                       <span slot="loader" class="custom-loader">
                         <v-icon light>cached </v-icon>
@@ -89,6 +95,7 @@
     watch:{
         user(value){
           if(value !==null && value !== undefined){
+
             this.$router.push('/');
           }
         }
