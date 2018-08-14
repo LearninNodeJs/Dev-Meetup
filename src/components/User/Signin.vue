@@ -8,6 +8,9 @@
     <v-layout row>
       <v-flex xs12 sm6 offset-sm3>
         <v-card>
+          <v-card-title>
+            <h4 class="primary--text">Sign In</h4>
+          </v-card-title>
           <v-card-text>
             <v-container>
               <form @submit.prevent="onSignInClicked">
@@ -19,7 +22,8 @@
                       id="email"
                       v-model="email"
                       type="email"
-                      required></v-text-field>
+                      required
+                    outline></v-text-field>
                   </v-flex>
                 </v-layout>
                 <v-layout row>
@@ -30,12 +34,13 @@
                       id="password"
                       v-model="password"
                       type="password"
-                      required></v-text-field>
+                      required
+                    outline></v-text-field>
                   </v-flex>
                 </v-layout>
                 <v-layout row>
                   <v-flex xs12>
-                    <v-btn round type="submit" :disabled="loading" :loading="loading">
+                    <v-btn outline class="primary--text" type="submit" :disabled="loading" :loading="loading">
                       Sign In
                       <span slot="loader" class="custom-loader">
                         <v-icon light>cached </v-icon>
