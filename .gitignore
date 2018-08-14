@@ -16,3 +16,5 @@ package-lock.json
 .env
 config/dev.env.js
 config/prod.env.js
+firebase-debug.log
+.firebase
