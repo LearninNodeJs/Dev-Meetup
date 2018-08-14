@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <v-toolbar dark class="red darken-2">
+    <v-toolbar dark class="primary darken-2">
       <v-toolbar-side-icon @click.native.stop="sideNav = !sideNav" class="hidden-sm-and-up"></v-toolbar-side-icon>
       <v-toolbar-title>
         <router-link to="/" tag="span" style="cursor: pointer"> Dev MeetUp</router-link>
