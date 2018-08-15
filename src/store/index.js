@@ -57,6 +57,7 @@ export const store = new Vuex.Store({
               commit('setLoadedMeetups',meetups);
           })
           .catch((error) =>{
+              commit('setLoading',false);
               console.log(error);
           });
       },
