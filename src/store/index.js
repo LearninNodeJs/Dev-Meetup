@@ -42,7 +42,7 @@ export const store = new Vuex.Store({
           .then(data=>{
               const meetups = [];
               const objects = data.val();
-              console.log(objects)
+              console.log(objects);
               for(let key in objects){
                 meetups.push({
                   id:key,
