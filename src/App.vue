@@ -3,7 +3,7 @@
     <v-toolbar dark class="primary darken-2">
       <v-toolbar-side-icon @click.native.stop="sideNav = !sideNav" class="hidden-sm-and-up"></v-toolbar-side-icon>
       <v-toolbar-title>
-        <router-link to="/" tag="span" style="cursor: pointer"> Dev MeetUp</router-link>
+        <router-link to="/home" tag="span" style="cursor: pointer"> Dev MeetUp</router-link>
        </v-toolbar-title>
       <v-spacer></v-spacer>
       <v-toolbar-items class="hidden-xs-only">
@@ -36,6 +36,12 @@
   <main>
   <router-view></router-view>
   </main>
+
+    <v-footer class="pa-3">
+      <h3 class="primary--text">Brian Kamau</h3>
+      <v-spacer></v-spacer>
+      <div>&copy; {{ new Date().getFullYear() }}</div>
+    </v-footer>
   </v-app>
 </template>
 

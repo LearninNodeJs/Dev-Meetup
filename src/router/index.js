@@ -14,8 +14,8 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'Home',
-      component: Home
+      name: 'Signin',
+      component: Signin
     },
     {
       path:'/meetups',
@@ -43,9 +43,9 @@ export default new Router({
       name:'Signup',
       component:Signup
     },{
-      path:'/signin',
-      name:'Signin',
-      component:Signin
+      path:'/home',
+      name:'Home',
+      component:Home
     },{
       path:'/hello',
       name:'HelloWorld',

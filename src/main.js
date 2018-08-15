@@ -32,5 +32,6 @@ new Vue({
         storageBucket: process.env.storageBucket,
         messagingSenderId: process.env.messagingSenderId
       });
+      this.$store.dispatch('loadMeetups');
   }
 });

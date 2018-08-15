@@ -16,6 +16,9 @@ export const store = new Vuex.Store({
       error:null
     },
     mutations:{
+      setLoadedMeetups(state,payload){
+          state.loadedMeetups = payload;
+      },
       createMeetup(state,payload){
         state.loadedMeetups.push(payload);
       },
@@ -33,16 +36,48 @@ export const store = new Vuex.Store({
       }
     },
     actions:{
+      loadMeetups({commit}){
+        commit('setLoading',true);
+        firebase.database().ref('meetups').once('value')
+          .then(data=>{
+              const meetups = [];
+              const objects = data.val();
+              console.log(objects)
+              for(let key in objects){
+                meetups.push({
+                  id:key,
+                  title:objects[key].title,
+                  description:objects[key].description,
+                  imageUrl:objects[key].imageUrl,
+                  location:objects[key].location,
+                  date:objects[key].date
+                });
+              }
+              commit('setLoading',false);
+              commit('setLoadedMeetups',meetups);
+          })
+          .catch((error) =>{
+              console.log(error);
+          });
+      },
       createMeetup({commit},payload){
         const meetup = {
           title:payload.title,
           location:payload.location,
           imageUrl:payload.imageUrl,
           description:payload.description,
-          date:payload.date,
-          id:'fdswfw'
+          date:payload.date.toISOString(),
         };
-        commit('createMeetup',meetup);
+        firebase.database().ref('meetups').push(meetup)
+          .then((data)=>{
+            const key = data.key;
+            console.log(data);
+            commit('createMeetup',{...meetup,id:key});
+          })
+          .catch((error)=>{
+            console.log(error);
+          });
+
       },
       createUserWithFirebase({commit},payload){
         commit('setLoading',true);
@@ -50,12 +85,12 @@ export const store = new Vuex.Store({
         firebase.auth().createUserWithEmailAndPassword(payload.email,payload.password)
           .then(user =>{
             commit('setLoading',false);
-              const newUser = {
+               const newUser = {
                 id: user.uid,
                 registeredMeetups: [],
-
-              }
+              };
               commit('setUser',newUser);
+
           })
           .catch(errors =>{
               commit('setLoading',false);
