@@ -8,6 +8,7 @@ import Signin from  '@/components/User/Signin'
 import Signup from  '@/components/User/Signup'
 import HelloWorld from '@/components/HelloWorld'
 import Meetup from '@/components/Meetup/Meetup'
+import auth from './auth-guard'
 Vue.use(Router)
 
 export default new Router({
@@ -25,7 +26,8 @@ export default new Router({
     {
       path:'/meetup/new',
       name:'CreateMeetup',
-      component:CreateMeetup
+      component:CreateMeetup,
+      beforeEnter:auth
     },
     {
       path:'/meetup/:id',
