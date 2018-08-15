@@ -32,6 +32,11 @@ new Vue({
         storageBucket: process.env.storageBucket,
         messagingSenderId: process.env.messagingSenderId
       });
+      firebase.auth().onAuthStateChanged((user)=>{
+        if(user){
+          this.$store.dispatch('autoSignIn',user);
+        }
+      });
       this.$store.dispatch('loadMeetups');
   }
 });

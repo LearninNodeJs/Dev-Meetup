@@ -15,6 +15,9 @@
             :to="item.link">
           <v-icon dark left>{{item.icon}}</v-icon>
           {{item.title}}</v-btn>
+        <v-btn flat v-if="userIsAuthenticated" @click.native="onLogout">
+          <v-icon dark left>exit_to_app</v-icon>
+          Logout</v-btn>
       </v-toolbar-items>
     </v-toolbar>
 
@@ -30,6 +33,12 @@
           <v-icon>{{item.icon}}</v-icon>
         </v-list-tile-action>
         <v-list-tile-content>{{item.title}}</v-list-tile-content>
+      </v-list-tile>
+      <v-list-tile v-if="userIsAuthenticated" @click.native="onLogout">
+        <v-list-tile-action>
+          <v-icon>exit_to_app</v-icon>
+        </v-list-tile-action>
+        <v-list-tile-content>Logout</v-list-tile-content>
       </v-list-tile>
     </v-list>
     </v-navigation-drawer>
@@ -62,8 +71,7 @@ export default {
           menuItems = [
           {icon: 'supervisor_account' ,title:'View Meetups',link:'/meetups'},
           {icon: 'room',title:'Organize Meetup',link:'/meetup/new'},
-          {icon: 'person',title:'Profile',link:'/profile'},
-            {icon:'keyboard_tab',title:'Logout',link:'/'}
+          {icon: 'person',title:'Profile',link:'/profile'}
           ]
         }
         return menuItems;
@@ -71,6 +79,11 @@ export default {
       userIsAuthenticated(){
         return this.$store.getters.user !== null && this.$store.getters.user!== undefined
       }
+  },
+  methods:{
+    onLogout(){
+      this.$store.dispatch('onLogoutHandler');
+    }
   },
   name: 'App'
 }

@@ -50,7 +50,8 @@ export const store = new Vuex.Store({
                   description:objects[key].description,
                   imageUrl:objects[key].imageUrl,
                   location:objects[key].location,
-                  date:objects[key].date
+                  date:objects[key].date,
+                  creatorId:objects[key].creatorIds
                 });
               }
               commit('setLoading',false);
@@ -61,13 +62,14 @@ export const store = new Vuex.Store({
               console.log(error);
           });
       },
-      createMeetup({commit},payload){
+      createMeetup({commit,getters},payload){
         const meetup = {
           title:payload.title,
           location:payload.location,
           imageUrl:payload.imageUrl,
           description:payload.description,
           date:payload.date.toISOString(),
+          creatorId:getters.user.id
         };
         firebase.database().ref('meetups').push(meetup)
           .then((data)=>{
@@ -117,6 +119,13 @@ export const store = new Vuex.Store({
               commit('setLoading',false);
               console.log(errors.message);
           })
+      },
+      autoSignIn({commit},payload){
+        commit('setUser',{id:payload.uid,registeredMeetups:[]});
+      },
+      onLogoutHandler({commit}){
+          firebase.auth().signOut();
+          commit('setUser',null);
       },
       clearError({commit}){
         commit('clearError');
