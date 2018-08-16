@@ -118,10 +118,16 @@
     },
     methods:{
       onCreateMeetup (){
+        if(!this.formIsValid){
+          return;
+        }
+        if(!this.image){
+          return;
+        }
         const meetupData ={
           title:this.title,
           location:this.location,
-          imageUrl:this.imageUrl,
+          image:this.image,
           description:this.description,
           date:this.submittableDateTime
         };

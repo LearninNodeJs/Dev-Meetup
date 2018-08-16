@@ -9,6 +9,7 @@ import {store} from './store'
 import DateFilter from './filter/date'
 import * as firebase from 'firebase'
 import AlertComponent from './components/Shared/Alert'
+import EditMeetupDialog from './components/Meetup/Edit/EditMeetupsDialog';
 import VueSession from 'vue-session';
 
 Vue.use(Vuetify);
@@ -16,6 +17,7 @@ Vue.use(VueSession);
 Vue.config.productionTip = false
 Vue.filter('date',DateFilter);
 Vue.component('app-alert',AlertComponent);
+Vue.component('edit-dialog',EditMeetupDialog);
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
