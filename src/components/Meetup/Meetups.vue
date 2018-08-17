@@ -39,8 +39,6 @@
         return this.$store.getters.loadedMeetups
       }
     }
-
-
   }
 </script>
 
