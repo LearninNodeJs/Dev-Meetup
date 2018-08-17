@@ -1,7 +1,7 @@
 <template>
   <v-dialog width="350px" persistent v-model="editDialog">
     <v-btn accent slot="activator" class="primary">
-      Edit Date
+      Edit Time
     </v-btn>
     <v-card>
       <v-container>

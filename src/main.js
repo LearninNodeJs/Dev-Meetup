@@ -12,6 +12,7 @@ import AlertComponent from './components/Shared/Alert'
 import EditMeetupDialog from './components/Meetup/Edit/EditMeetupsDialog';
 import EditMeetupDateDialog from './components/Meetup/Edit/EditMeetupDateDialog'
 import EditMeetupTimeDialog from './components/Meetup/Edit/EditMeetupTimeDialog';
+import RegisterDialog from './components/Meetup/Registration/RegistrationDialog';
 import VueSession from 'vue-session';
 
 Vue.use(Vuetify);
@@ -22,6 +23,7 @@ Vue.component('app-alert',AlertComponent);
 Vue.component('edit-dialog',EditMeetupDialog);
 Vue.component('edit-date-dialog',EditMeetupDateDialog);
 Vue.component('edit-time-dialog',EditMeetupTimeDialog);
+Vue.component('registration-dialog',RegisterDialog);
 
 
 
