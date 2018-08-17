@@ -54,7 +54,7 @@
     },
     methods:{
       onChangeSaved(){
-        if(this.editedTitle.trim() ==='' || this.editDescription ===''){
+        if(this.editedTitle.trim() ==='' || this.editDescription.trim() ===''){
           return;
         }
         this.editDialog = false;
