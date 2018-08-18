@@ -31,7 +31,7 @@
           </v-card-text>
           <v-card-actions>
             <v-spacer></v-spacer>
-            <registration-dialog :meetupId="meetup.id"></registration-dialog>
+            <registration-dialog :meetupId="meetup.id" v-if="userIsAuthenticated && !userIsCreator"></registration-dialog>
           </v-card-actions>
         </v-card>
       </v-flex>
